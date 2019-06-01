@@ -27,6 +27,7 @@ namespace ModelValidation
         public bool Validate()
         {
             bool result = true;
+            List<string> tempErrors = new List<string>();
             PropertyInfo[] properties = GetType().GetProperties();
 
             foreach (PropertyInfo property in properties)
@@ -43,12 +44,13 @@ namespace ModelValidation
 
                     if (!tempResult)
                     {
-                        Errors.Add(errorMessage);
+                        tempErrors.Add(errorMessage);
                         result = false;
                     }
                 }
             }
 
+            Errors = tempErrors;
             return result;
         }
 
