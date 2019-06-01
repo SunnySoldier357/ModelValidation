@@ -2,7 +2,7 @@
 
 namespace ModelValidation
 {
-    [AttributeUsage(AttributeTargets.Property)]
+    [AttributeUsage(AttributeTargets.Property, Inherited = true)]
     public abstract class ValidatablePropertyAttribute : Attribute
     {
         //* Abstract Methods

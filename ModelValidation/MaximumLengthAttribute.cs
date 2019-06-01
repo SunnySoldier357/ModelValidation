@@ -15,7 +15,7 @@
         public MaximumLengthAttribute(int maximumLength) =>
             MaximumLength = maximumLength;
 
-        //* Overriden Methods
+        //* Overridden Methods
         public override bool Validate<T>(T value, string nameofProperty,
             out string errorMessage)
         {
