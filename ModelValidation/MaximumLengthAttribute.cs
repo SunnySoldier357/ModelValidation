@@ -19,11 +19,16 @@
         public override bool Validate<T>(T value, string nameofProperty,
             out string errorMessage)
         {
+            errorMessage = null;
+
+            if (value == null)
+                return true;
+
             string strValue = value.ToString();
 
             bool valid = strValue.Length <= MaximumLength;
 
-            errorMessage = valid ? "" : $"{nameofProperty} too long";
+            errorMessage = valid ? null : $"{nameofProperty} too long";
 
             return valid;
         }
