@@ -15,9 +15,17 @@
     public class DoesNotContainCharacterAttribute : ValidatablePropertyAttribute
     {
         //* Public Properties
+
+        /// <summary>
+        /// The character that the property must not contain.
+        /// </summary>
         public char Character { get; set; }
 
         //* Constructors
+
+        /// <param name="character">
+        /// The character that the property must not contain.
+        /// </param>
         public DoesNotContainCharacterAttribute(char character) =>
             Character = character;
 

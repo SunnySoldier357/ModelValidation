@@ -9,9 +9,17 @@
     public class MinimumLengthAttribute : ValidatablePropertyAttribute
     {
         //* Public Properties
+
+        /// <summary>
+        /// The minimum length of the property.
+        /// </summary>
         public int MinimumLength { get; set; }
 
         //* Constructors
+
+        /// <param name="minimumLength">
+        /// The minimum length of the property.
+        /// </param>
         public MinimumLengthAttribute(int minimumLength) =>
             MinimumLength = minimumLength;
 

@@ -15,9 +15,17 @@
     public class ContainsCharacterAttribute : ValidatablePropertyAttribute
     {
         //* Public Properties
+
+        /// <summary>
+        /// The character that the property must contain.
+        /// </summary>
         public char Character { get; set; }
 
         //* Constructors
+
+        /// <param name="character">
+        /// The character that the property must contain.
+        /// </param>
         public ContainsCharacterAttribute(char character) =>
             Character = character;
 

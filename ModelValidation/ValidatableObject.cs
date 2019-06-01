@@ -11,6 +11,10 @@ namespace ModelValidation
         protected List<string> errors;
 
         //* Public Properties
+
+        /// <summary>
+        /// A List of all the error messages due to invalid properties.
+        /// </summary>
         public List<string> Errors
         {
             get => errors;
@@ -24,6 +28,15 @@ namespace ModelValidation
         public ValidatableObject() => Errors = new List<string>();
 
         //* Public Methods
+
+        /// <summary>
+        /// Validates this class or any of its subclasses, ensuring that any
+        /// property that has an attribute that derives from
+        /// ValidatablePropertyAttribute is valid.
+        /// </summary>
+        /// <returns>
+        /// A boolean representing if all the class' properties are valid.
+        /// </returns>
         public bool Validate()
         {
             bool result = true;

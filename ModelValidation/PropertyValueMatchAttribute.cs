@@ -5,10 +5,20 @@ namespace ModelValidation
     public class PropertyValueMatchAttribute : ValidatablePropertyAttribute
     {
         //* Public Properties
+
+        /// <summary>
+        /// The name of the other property to compare the selected property
+        /// with.
+        /// </summary>
         public string OtherPropertyName { get; set; }
 
         //* Constructors
-        public PropertyValueMatchAttribute(string otherPropertyName) => 
+
+        /// <param name="otherPropertyName">
+        /// The name of the other property to compare the selected property
+        /// with.
+        /// </param>
+        public PropertyValueMatchAttribute(string otherPropertyName) =>
             OtherPropertyName = otherPropertyName;
 
         //* Overridden Methods

@@ -9,9 +9,17 @@
     public class MaximumLengthAttribute : ValidatablePropertyAttribute
     {
         //* Public Properties
+
+        /// <summary>
+        /// The maximum length of the property.
+        /// </summary>
         public int MaximumLength { get; set; }
 
         //* Constructors
+
+        /// <param name="maximumLength">
+        /// The maximum length of the property.
+        /// </param>
         public MaximumLengthAttribute(int maximumLength) =>
             MaximumLength = maximumLength;
 
