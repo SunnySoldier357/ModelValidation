@@ -5,12 +5,12 @@ using ModelValidationTest.Models;
 namespace ModelValidationTest
 {
     [TestClass]
-    public class MinimumLengthAttributeTest
+    public class DoesNotContainCharacterAttributeTest
     {
         [TestMethod]
         public void NullValueTest()
         {
-            var test = new MinimumLengthTestClass(null);
+            var test = new DoesNotContainCharacterTestClass(null);
 
             Assert.IsTrue(test.Validate());
             Assert.IsTrue(test.Errors.Count == 0);
@@ -19,7 +19,7 @@ namespace ModelValidationTest
         [TestMethod]
         public void ValidLengthTest()
         {
-            var test = new MinimumLengthTestClass("123456789 123456789");
+            var test = new DoesNotContainCharacterTestClass("test something.com");
 
             Assert.IsTrue(test.Validate());
             Assert.IsTrue(test.Errors.Count == 0);
@@ -28,11 +28,12 @@ namespace ModelValidationTest
         [TestMethod]
         public void InvalidLengthTest()
         {
-            var test = new MinimumLengthTestClass("123456");
+            var test = new DoesNotContainCharacterTestClass("test@something.com");
 
             Assert.IsFalse(test.Validate());
             Assert.IsTrue(test.Errors.Count == 1);
-            Assert.IsTrue(test.Errors[0] == $"{nameof(test.Value)} too short");
+            Assert.IsTrue(test.Errors[0] == $"{nameof(test.Value)} is invalid as it does" +
+                " contain a '@'");
         }
     }
 }

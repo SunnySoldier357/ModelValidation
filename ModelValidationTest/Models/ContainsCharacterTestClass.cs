@@ -2,14 +2,14 @@
 
 namespace ModelValidationTest.Models
 {
-    public class MaximumLengthTestClass : ValidatableObject
+    public class ContainsCharacterTestClass : ValidatableObject
     {
         //* Public Properties
-        [MaximumLength(10)]
+        [ContainsCharacter('@')]
         public string Value { get; set; }
 
         //* Constructors
-        public MaximumLengthTestClass(string value) =>
+        public ContainsCharacterTestClass(string value) =>
             Value = value;
     }
 }

@@ -32,7 +32,7 @@ namespace ModelValidationTest
 
             Assert.IsFalse(test.Validate());
             Assert.IsTrue(test.Errors.Count == 1);
-            Assert.IsTrue(test.Errors[0] == $"{nameof(test.Name)} too long");
+            Assert.IsTrue(test.Errors[0] == $"{nameof(test.Value)} too long");
         }
     }
 }

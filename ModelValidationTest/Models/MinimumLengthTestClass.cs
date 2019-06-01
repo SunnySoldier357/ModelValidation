@@ -6,10 +6,10 @@ namespace ModelValidationTest.Models
     {
         //* Public Properties
         [MinimumLength(10)]
-        public string Name { get; set; }
+        public string Value { get; set; }
 
         //* Constructors
-        public MinimumLengthTestClass(string name) =>
-            Name = name;
+        public MinimumLengthTestClass(string value) =>
+            Value = value;
     }
 }
