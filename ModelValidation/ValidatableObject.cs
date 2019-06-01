@@ -39,8 +39,8 @@ namespace ModelValidation
                     dynamic value = Convert.ChangeType(property.GetValue(this),
                         property.PropertyType);
 
-                    bool tempResult = attribute.Validate<dynamic>(value, property.Name,
-                        out string errorMessage);
+                    bool tempResult = attribute.Validate<ValidatableObject, dynamic>(
+                        this, value, property.Name, out string errorMessage);
 
                     if (!tempResult)
                     {

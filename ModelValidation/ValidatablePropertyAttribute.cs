@@ -6,7 +6,7 @@ namespace ModelValidation
     public abstract class ValidatablePropertyAttribute : Attribute
     {
         //* Abstract Methods
-        public abstract bool Validate<T>(T value, string nameofProperty,
-            out string errorMessage);
+        public abstract bool Validate<TClass, TValue>(TClass instance, TValue value,
+            string nameofProperty, out string errorMessage);
     }
 }
