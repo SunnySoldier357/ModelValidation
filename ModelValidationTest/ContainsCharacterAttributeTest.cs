@@ -7,6 +7,8 @@ namespace ModelValidationTest
     [TestClass]
     public class ContainsCharacterAttributeTest
     {
+        //* Test Methods
+
         [TestMethod]
         public void NullValueTest()
         {
@@ -17,7 +19,7 @@ namespace ModelValidationTest
         }
 
         [TestMethod]
-        public void ValidLengthTest()
+        public void ValidTest()
         {
             var test = new ContainsCharacterTestClass("test@something.com");
 
@@ -26,7 +28,7 @@ namespace ModelValidationTest
         }
 
         [TestMethod]
-        public void InvalidLengthTest()
+        public void InvalidTest()
         {
             var test = new ContainsCharacterTestClass("test something.com");
 

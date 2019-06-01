@@ -7,6 +7,8 @@ namespace ModelValidationTest
     [TestClass]
     public class MinimumLengthAttributeTest
     {
+        //* Test Methods
+
         [TestMethod]
         public void NullValueTest()
         {
