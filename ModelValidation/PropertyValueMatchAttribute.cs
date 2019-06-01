@@ -15,13 +15,13 @@ namespace ModelValidation
         public override bool Validate<TClass, TValue>(TClass instance, TValue value,
             string nameofProperty, out string errorMessage)
         {
-            PropertyInfo otherProperty = typeof(TClass).GetProperty(OtherPropertyName);
+            PropertyInfo otherProperty = instance.GetType().GetProperty(OtherPropertyName);
             object otherValue = otherProperty.GetValue(instance);
 
-            bool valid = value.Equals(otherValue);
+            bool valid = value?.Equals(otherValue) ?? otherValue == null;
 
             errorMessage = valid ? "" : $"{nameofProperty} does not match" +
-                $"{OtherPropertyName}";
+                $" {OtherPropertyName}";
 
             return valid;
         }
