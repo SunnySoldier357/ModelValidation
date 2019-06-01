@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ModelValidation</id>
+    <version>$version$</version>
+    <title>Model Validation</title>
+    <authors>SunnySoldier357</authors>
+    <owners>SunnySoldier357</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/SunnySoldier357/ModelValidation</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A way to validate models through the use of attributes.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>validation model attributes validate</tags>
+  </metadata>
+</package>

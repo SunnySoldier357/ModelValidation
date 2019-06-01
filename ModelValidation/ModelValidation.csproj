@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Sandeep Singh Sidhu</Authors>
+    <Company />
+    <Description>A way to validate models through the use of attributes.</Description>
   </PropertyGroup>
 
   <ItemGroup>
