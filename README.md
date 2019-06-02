@@ -1,7 +1,7 @@
 # Model Validation
 
-A [NuGet Package](https://www.nuget.org/packages/ModelValidation/) to aid with
-validating Models through the use of Attributes.
+A [NuGet Package](https://www.nuget.org/packages/SunnySoldier357.ModelValidation/)
+to aid with validating Models through the use of Attributes.
 
 ## Use
 
