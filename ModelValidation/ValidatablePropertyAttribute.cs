@@ -6,6 +6,11 @@ namespace ModelValidation
     public abstract class ValidatablePropertyAttribute : Attribute
     {
         //* Public Properties
+
+        /// <summary>
+        /// A custom error message to be used instead of the default
+        /// error message.
+        /// </summary>
         public string ErrorMessage { get; set; }
 
         //* Abstract Methods
