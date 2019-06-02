@@ -42,8 +42,11 @@
 
             bool valid = strValue.Contains(Character.ToString());
 
-            errorMessage = valid ? null : $"{nameofProperty} is invalid as it does not" +
-                $" contain a '{Character}'";
+            if (ErrorMessage != null)
+                errorMessage = ErrorMessage;
+            else
+                errorMessage = valid ? null : $"{nameofProperty} is invalid as it does not" +
+                    $" contain a '{Character}'";
 
             return valid;
         }

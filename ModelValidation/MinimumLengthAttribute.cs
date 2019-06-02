@@ -36,7 +36,10 @@
 
             bool valid = strValue.Length >= MinimumLength;
 
-            errorMessage = valid ? null : $"{nameofProperty} too short";
+            if (ErrorMessage != null)
+                errorMessage = ErrorMessage;
+            else
+                errorMessage = valid ? null : $"{nameofProperty} too short";
 
             return valid;
         }

@@ -36,7 +36,10 @@
 
             bool valid = strValue.Length <= MaximumLength;
 
-            errorMessage = valid ? null : $"{nameofProperty} too long";
+            if (ErrorMessage != null)
+                errorMessage = ErrorMessage;
+            else
+                errorMessage = valid ? null : $"{nameofProperty} too long";
 
             return valid;
         }

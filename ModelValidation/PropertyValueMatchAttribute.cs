@@ -30,8 +30,11 @@ namespace ModelValidation
 
             bool valid = value?.Equals(otherValue) ?? otherValue == null;
 
-            errorMessage = valid ? "" : $"{nameofProperty} does not match" +
-                $" {OtherPropertyName}";
+            if (ErrorMessage != null)
+                errorMessage = ErrorMessage;
+            else
+                errorMessage = valid ? "" : $"{nameofProperty} does not match" +
+                    $" {OtherPropertyName}";
 
             return valid;
         }
