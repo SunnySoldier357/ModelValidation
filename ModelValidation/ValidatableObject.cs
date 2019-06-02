@@ -45,20 +45,23 @@ namespace ModelValidation
 
             foreach (PropertyInfo property in properties)
             {
-                ValidatablePropertyAttribute attribute = getAttribute(property.Name);
+                var attributes = getAttributes(property.Name);
 
-                if (attribute != null)
+                if (attributes != null)
                 {
-                    dynamic value = Convert.ChangeType(property.GetValue(this),
-                        property.PropertyType);
-
-                    bool tempResult = attribute.Validate<ValidatableObject, dynamic>(
-                        this, value, property.Name, out string errorMessage);
-
-                    if (!tempResult)
+                    foreach (var attribute in attributes)
                     {
-                        tempErrors.Add(errorMessage);
-                        result = false;
+                        dynamic value = Convert.ChangeType(property.GetValue(this),
+                            property.PropertyType);
+
+                        bool tempResult = attribute.Validate<ValidatableObject, dynamic>(
+                            this, value, property.Name, out string errorMessage);
+
+                        if (!tempResult)
+                        {
+                            tempErrors.Add(errorMessage);
+                            result = false;
+                        }
                     }
                 }
             }
@@ -82,18 +85,20 @@ namespace ModelValidation
         }
 
         //* Private Methods
-        private ValidatablePropertyAttribute getAttribute(string propertyName)
+        private IEnumerable<ValidatablePropertyAttribute> getAttributes(string propertyName)
         {
+            var result = new List<ValidatablePropertyAttribute>();
+
             object[] attributes = GetType().GetProperty(propertyName)
                 .GetCustomAttributes(false);
 
             foreach (object attribute in attributes)
             {
                 if (attribute is ValidatablePropertyAttribute attr)
-                    return attr;
+                    result.Add(attr);
             }
 
-            return null;
+            return result.Count == 0 ? null : result;
         }
     }
 }
