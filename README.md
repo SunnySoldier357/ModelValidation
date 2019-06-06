@@ -46,7 +46,12 @@ which can be used.
 ### Custom Attributes
 
 Any class can extend from the base `ValidatablePropertyAttribute` and define
-custom validation attributes.
+custom validation attributes. When applied on a ValidatableObject, no additional
+work needs to be done to ensure that the Attributes's Validation Rules are
+called when the `ValidatableObject`'s `Validate()` method is called.
+
+The Error Messages can also be overridden by specifying them in the attribute
+constructor.
 
 ## Example Model
 
@@ -69,7 +74,7 @@ public class TestModel : ValidatableObject
     [MaximumLength(64)]
     public string Password { get; set; }
 
-    [PropertyValueMatch(nameof(Password))]
+    [PropertyValueMatch(nameof(Password), ErrorMessage = "Passwords do not match")]
     public string ConfirmPassword { get; set; }
 }
 ```
